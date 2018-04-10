@@ -8,10 +8,6 @@ node {
 	              scm: [$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: \
 	                 [[$class: 'ScmName', name: 'gradle']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Database', \
 	                 url: 'https://github.com/yeshwanthreddy77/jenkins-example.git']]]
-  checkout changelog: false, poll: false, \
-	              scm: [$class: 'GitSCM', branches: [[name: '*/develop']], doGenerateSubmoduleConfigurations: false, extensions: \
-	                 [[$class: 'ScmName', name: 'gradle']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Database', \
-	                 url: 'https://github.com/yeshwanthreddy77/jenkins-example.git']]]
 		
   
 		stage 'Master stage- test'  
