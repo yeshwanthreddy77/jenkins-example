@@ -14,7 +14,7 @@ node {
   def flavor = flavor(env.BRANCH_NAME)
   echo "Building flavor ${flavor}"
 
-  
+}
 
 // Pulls the android flavor out of the branch name the branch is prepended with /QA_
 //@NonCPS
