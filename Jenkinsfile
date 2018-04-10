@@ -17,7 +17,7 @@ node {
 	formaster()
         } 
         
-    if (env.BRANCH_NAME == 'develop'){ 
+    else if (env.BRANCH_NAME == 'develop'){ 
         checkout()
         unitTest()
         formaster()
