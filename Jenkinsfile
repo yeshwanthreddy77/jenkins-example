@@ -22,9 +22,6 @@ node {
         unitTest()
         formaster()
     }
-	else {
-		Echo "nothing doing "
-	}
 
 }
 
