@@ -14,18 +14,12 @@ node {
   def flavor = flavor(env.BRANCH_NAME)
   echo "Building flavor ${flavor}"
 
-  stage 'Stage Archive'
-  //tell Jenkins to archive the apks
-  archiveArtifacts artifacts: 'app/build/outputs/apk/*.apk', fingerprint: true
-
-  stage 'Stage Upload To Fabric'
-  sh "./gradlew crashlyticsUploadDistribution${flavor}Debug  -PBUILD_NUMBER=${env.BUILD_NUMBER}"
-}
+  
 
 // Pulls the android flavor out of the branch name the branch is prepended with /QA_
-@NonCPS
-def flavor(branchName) {
-  def matcher = (env.BRANCH_NAME = 'master')
-  assert matcher.matches()
-  matcher[0][1]
-}
+//@NonCPS
+//def flavor(branchName) {
+  //def matcher = (env.BRANCH_NAME = 'master')
+  //assert matcher.matches()
+  //matcher[0][1]
+//}
