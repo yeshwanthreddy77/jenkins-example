@@ -6,13 +6,17 @@ node {
   // Checkout code from repository and update any submodules
   checkout scm
   
-  stage 'Stage Build'
+  stage 'Example'  {
+        if (env.BRANCH_NAME == 'master') {
+            echo 'I only execute on the master branch'
+        } else {
+            echo 'I execute elsewhere'
+        }
+    }
+  stage 'Stage Build'{
 
   //branch name from Jenkins environment variables
   echo "My branch is: ${env.BRANCH_NAME}"
-
-  def flavor = flavor(env.BRANCH_NAME)
-  echo "Building flavor ${flavor}"
 
 }
 
