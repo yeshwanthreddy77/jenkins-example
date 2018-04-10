@@ -17,7 +17,7 @@ node {
 
   //branch name from Jenkins environment variables
   echo "My branch is: ${env.BRANCH_NAME}"
-
+  }
 }
 
 // Pulls the android flavor out of the branch name the branch is prepended with /QA_
