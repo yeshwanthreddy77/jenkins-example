@@ -14,9 +14,10 @@ node {
 	                 url: 'https://github.com/yeshwanthreddy77/jenkins-example.git']]]
   
   
-  stage 'Example'  
+  stage 'Master stage- test'  
         if (env.BRANCH_NAME == 'master') {
             echo 'I only execute on the master branch'
+		sh 'mvn test'
         } else {
             echo 'I execute elsewhere'
         }
