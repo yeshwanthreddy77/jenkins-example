@@ -12,15 +12,19 @@ node {
     //env.PATH="${env.JAVA_HOME}/bin:${env.PATH}"
     
     // pull request or feature branch
-    if  (env.BRANCH_NAME != 'master') {
+    if  (env.BRANCH_NAME == 'master') {
         checkout()
+	formaster()
         } 
-        // master branch / production
-    else { 
+        
+    if (env.BRANCH_NAME == 'develop'){ 
         checkout()
-        build()
+        unitTest()
         formaster()
     }
+	else {
+		Echo "nothing doing "
+	}
 
 }
 
