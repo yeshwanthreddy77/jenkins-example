@@ -17,12 +17,16 @@ node {
   stage 'Master stage- test'  
         if (env.BRANCH_NAME == 'master') {
             echo 'I only execute on the master branch'
-		sh 'mvn test'
         } else {
             echo 'I execute elsewhere'
         }
     
-  stage 'Stage Build'
+  stage 'Stage Build develop'
+	if (env.BRANCH_NAME == 'develop') {
+            echo 'I only execute on the develop branch'
+        } else {
+            echo 'I execute elsewhere'
+        }
 
   //branch name from Jenkins environment variables
   echo "My branch is: ${env.BRANCH_NAME}"
