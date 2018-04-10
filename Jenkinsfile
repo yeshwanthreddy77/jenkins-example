@@ -1,7 +1,6 @@
 
 node {
   // Mark the code checkout 'stage'....
-	stages{
 		stage 'Stage Checkout'{
 
   // Checkout code from repository and update any submodules
@@ -34,4 +33,4 @@ node {
   echo "My branch is: ${env.BRANCH_NAME}"
 		}
 }
-}
+
