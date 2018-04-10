@@ -14,8 +14,6 @@ node {
     // pull request or feature branch
     if  (env.BRANCH_NAME != 'master') {
         checkout()
-        build()
-        unitTest()
         } 
         // master branch / production
     else { 
