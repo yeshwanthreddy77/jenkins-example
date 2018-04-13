@@ -17,10 +17,15 @@ node {
 	formaster()
         } 
         
-    if (env.BRANCH_NAME == 'develop'){ 
+    else if (env.BRANCH_NAME == 'develop'){ 
         checkout()
         unitTest()
     }
+    
+	else ((env.BRANCH_NAME != 'master') | (env.BRANCH_NAME != 'develop')) {
+		
+		compile()
+	}
 
 }
 
@@ -31,6 +36,10 @@ def checkout () {
 	              scm: [$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: \
 	                 [[$class: 'ScmName', name: 'gradle']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Database', \
 	                 url: 'https://github.com/yeshwanthreddy77/jenkins-example.git']]]
+}
+
+def compile() {
+	stage 'compile'
 }
 
 def build () {
