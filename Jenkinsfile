@@ -21,15 +21,10 @@ node {
         checkout()
         unitTest()
     }
-    else if (env.BRANCH_NAME == 'feature-1'){ 
-        checkout()
-        unitTest()
-        feature()
-    }
-
-    else {
-        printf "error"
-    }
+    else ((env.BRANCH_NAME != 'master') | (env.BRANCH_NAME != 'develop')) {
+		
+		compile()
+	}
     
 }
 
@@ -37,7 +32,7 @@ def checkout () {
     stage 'Checkout code'
     context="continuous-integration/jenkins/"
     checkout changelog: false, poll: false, \
-	              scm: [$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: \
+	              scm: [$class: 'GitSCM', branches: [[name: '*/feature-1']], doGenerateSubmoduleConfigurations: false, extensions: \
 	                 [[$class: 'ScmName', name: 'gradle']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Database', \
 	                 url: 'https://github.com/yeshwanthreddy77/jenkins-example.git']]]
 }
@@ -46,6 +41,10 @@ def build () {
     stage 'Build'
     echo "build step"
     //mvn 'clean install -DskipTests=true -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true -B -V'
+}
+
+def compile() {
+	stage 'compile'
 }
 def formaster () {
     stage 'formaster'
