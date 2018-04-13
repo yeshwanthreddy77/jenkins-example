@@ -21,7 +21,7 @@ node {
         checkout()
         unitTest()
     }
-    else if (env.BRANCH_NAME != 'master' && env.BRANCH_NAME != 'develop') {
+    else (env.BRANCH_NAME != 'master' && env.BRANCH_NAME != 'develop') {
 		
 		compile()
 	}
