@@ -61,7 +61,7 @@ def unitTest() {
 }
 def release() {
 	stage 'release'
-	sh 'mvn release:prepare release:perform -B'
+	sh "mvn release:prepare release:perform -B"
 }
 
 //def buildAndPublishToArtifactory() {       
