@@ -58,7 +58,10 @@ def unitTest() {
    // mvn 'test -B -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true'
    
 }
-
+def release() {
+	stage 'release'
+	sh 'mvn release:prepare release:perform -B'
+}
 
 //def buildAndPublishToArtifactory() {       
 //        def rtMaven = Artifactory.newMavenBuild()
