@@ -1,4 +1,4 @@
-#!groovy
+#!/bin/bash
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 node {
