@@ -20,6 +20,7 @@ node {
         
     else if (env.BRANCH_NAME == 'develop'){ 
         checkout()
+	downstream()   
         unitTest()
     }
     
