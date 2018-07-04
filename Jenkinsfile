@@ -42,6 +42,10 @@ def checkout () {
 def compile() {
 	stage 'compile'
 }
+def downstream() {
+stage 'test-downstream'
+	build job: 'Devevn'
+}
 
 def build () {
     stage 'Build'
