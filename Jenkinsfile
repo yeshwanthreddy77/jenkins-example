@@ -15,7 +15,8 @@ node {
     if  (env.BRANCH_NAME == 'master') {
         checkout()
 	formaster()
-	release()    
+	downstream()    
+	//release()    
         } 
         
     else if (env.BRANCH_NAME == 'develop'){ 
